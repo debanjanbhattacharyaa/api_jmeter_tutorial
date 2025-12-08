@@ -16,7 +16,7 @@ It includes endpoints to demonstrate:
 ## 🛠️ Project Setup
 
 Download the Prerequisites
-1. Clone the <Repository>
+1. Clone the Repository.
 2. run .\prerequisite.ps1
 3. run python app.py
 

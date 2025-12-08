@@ -1,5 +1,3 @@
-#code by Debanjan B
-
 # Requires PowerShell 5.0 or later (standard on Windows 10/11)
 
 # --- CONFIGURATION ---

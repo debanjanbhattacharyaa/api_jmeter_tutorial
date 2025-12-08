@@ -47,7 +47,9 @@ if (-not (Check-Command "git" "Git")) {
 # -----------------------------------------------
 # --- 2. CHECK AND INSTALL PYTHON & PIP ---
 # -----------------------------------------------
-if (-not (Check-Command "python" "Python 3")) {
+$PythonInstalled = Check-Command "python" "Python 3"
+
+if (-not $PythonInstalled) {
     Write-Host "Downloading Python installer from $PythonInstallerUrl..." -ForegroundColor Green
     try {
         Invoke-WebRequest -Uri $PythonInstallerUrl -OutFile $PythonFileName
@@ -57,20 +59,40 @@ if (-not (Check-Command "python" "Python 3")) {
         Remove-Item $PythonFileName
         
         Write-Host "Python 3 installed and added to PATH. Pip is included." -ForegroundColor Green
+        # Set the flag to true since installation just completed
+        $PythonInstalled = $true
     }
     catch {
         Write-Host "ERROR: Failed to download or install Python. Check URL or permissions." -ForegroundColor Red
         exit 1
     }
-} else {
+}
+else {
     # If Python is found, ensure pip is updated (Good practice)
     Write-Host "Upgrading pip (best practice)..." -ForegroundColor Yellow
     python -m pip install --upgrade pip
 }
 
 # -----------------------------------------------
-# --- 3. FINAL SUMMARY ---
+# --- 3. INSTALL PROJECT DEPENDENCIES ---
+# -----------------------------------------------
+if ($PythonInstalled) {
+    Write-Host "`nInstalling core Python dependencies (Flask, Flask-JWT-Extended)..." -ForegroundColor Yellow
+    try {
+        # This will install globally if no venv is active, but ensures the packages are available
+        # when the user creates and activates the venv later.
+        pip install Flask Flask-JWT-Extended
+        Write-Host "Python dependencies installed successfully." -ForegroundColor Green
+    }
+    catch {
+        Write-Host "ERROR: Failed to install Python dependencies. Check network or pip configuration." -ForegroundColor Red
+        Write-Host "Try installing Manually. Run this command 'pip install Flask Flask-JWT-Extended'" -ForegroundColor Red
+    }
+}
+
+# -----------------------------------------------
+# --- 4. FINAL SUMMARY ---
 # -----------------------------------------------
 Write-Host "`n--- CORE TOOLS SETUP COMPLETE ---" -ForegroundColor Cyan
-Write-Host "Git and Python/Pip are now available in your system PATH." -ForegroundColor Cyan
+Write-Host "Git, Python, and required libraries are now installed on your system." -ForegroundColor Cyan
 Write-Host "You can now proceed to clone your repository and set up your project environment." -ForegroundColor Cyan

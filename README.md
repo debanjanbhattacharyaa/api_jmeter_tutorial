@@ -1,4 +1,4 @@
-# 🔑 Flask JWT Correlation Tutorial API
+# 🔑 API for Apache JMeter Tutorial
 
 This project provides a simple, three-endpoint Flask API designed specifically to demonstrate **token correlation** and different HTTP response handling during performance testing, particularly using Apache JMeter.
 
@@ -13,15 +13,23 @@ It includes endpoints to demonstrate:
 
 ---
 
-## 🛠️ Project Setup (Windows/Linux/macOS)
+## 🛠️ Project Setup
 
-### Prerequisites
+Download the Prerequisites
+1. Clone the <Repository>
+2. run .\prerequisite.ps1
+3. run python app.py
 
-* Python 3.8+
-* `pip` (Python package installer)
+## 🚀 API Endpoints Documentation
 
-### 1. Clone the Repository
+1. **Login (Token Generation)** - POST - /api/login - Status200 OK on success, 401 Unauthorized on failure.
+   JSON Body
+   
+   {
+    "username": "testuser",
+    "password": "testpass"
+}
 
-```bash
-git clone [YOUR_REPOSITORY_URL]
-cd api_tutorial
+2. **Check Token** - GET - /api/check_token - Status	200 OK on successful token validation.
+
+3. **Generate 500 Error** - GET - /api/error_check - Status 500 Internal Server Error (even with a valid token).

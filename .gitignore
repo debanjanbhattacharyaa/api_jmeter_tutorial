@@ -1,0 +1,7 @@
+# Virtual environment directory
+venv/
+# Python cache
+__pycache__/
+*.pyc
+# JWT Secret Key (Always ignore sensitive keys in a real app!)
+# While your key is hardcoded, in a real app, you'd ignore the file holding the secret.

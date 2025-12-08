@@ -33,3 +33,5 @@ Download the Prerequisites
 2. **Check Token** - GET - /api/check_token - Status	200 OK on successful token validation.
 
 3. **Generate 500 Error** - GET - /api/error_check - Status 500 Internal Server Error (even with a valid token).
+
+### This Code is compatible for "Windows Only".

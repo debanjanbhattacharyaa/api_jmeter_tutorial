@@ -34,4 +34,4 @@ Download the Prerequisites
 
 3. **Generate 500 Error** - GET - /api/error_check - Status 500 Internal Server Error (even with a valid token).
 
-### This Code is compatible for "Windows Only".
+### This Code is compatible for local "Windows Only" machine.

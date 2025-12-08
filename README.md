@@ -15,11 +15,19 @@ It includes endpoints to demonstrate:
 
 ## 🛠️ Project Setup
 
-Download the Prerequisites
 1. Clone the Repository.
-2. run .\prerequisite.ps1
+2. Run the command inside the repository
+   ```bash
+   python -m venv venv
+   cd venv/Scripts
+   active.bat
+   pip install Flask Flask-JWT-Extended
+   ```
 3. run python app.py
-
+   ```bash
+   python app.py
+   ```
+4. open the jmx file in Jmeter, and execute the Http Requests.
 ## 🚀 API Endpoints Documentation
 
 1. **Login (Token Generation)** - POST - /api/login - Status200 OK on success, 401 Unauthorized on failure.

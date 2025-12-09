@@ -20,7 +20,7 @@ It includes endpoints to demonstrate:
    ```bash
    python -m venv venv
    cd venv/Scripts
-   active.bat
+   activate.bat
    pip install Flask Flask-JWT-Extended
    ```
 3. run python app.py

@@ -21,9 +21,9 @@ It includes endpoints to demonstrate:
    python -m venv venv
    cd venv/Scripts
    activate.bat
-   pip install Flask Flask-JWT-Extended
+   python -m pip install Flask Flask-JWT-Extended
    ```
-3. run python app.py
+3. run python app.py in the repositoty folder
    ```bash
    python app.py
    ```
